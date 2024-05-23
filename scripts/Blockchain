@@ -19,12 +19,14 @@ def main():
     contract_json_dest_dir = cur_dir.parent.joinpath("snet", "cli", "resources", "contracts")
     abi_contract_names = ["Registry", "MultiPartyEscrow"]
     networks_contract_names = ["Registry", "MultiPartyEscrow"]
+    print("---------------------",contract_json_dest_dir)
 
     npm_location = shutil.which('npm')
     if not npm_location:
         raise Exception("This script requires 'npm' to be installed and in your PATH")
 
     if target == "install":
+    	os.makedirs(contract_json_dest_dir, exist_ok=True)
         shutil.rmtree(contract_json_dest_dir)
 
         subprocess.call([npm_location, "install"], cwd=blockchain_dir)
