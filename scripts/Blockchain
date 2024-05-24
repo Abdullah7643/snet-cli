@@ -26,8 +26,8 @@ def main():
         raise Exception("This script requires 'npm' to be installed and in your PATH")
 
     if target == "install":
-    	os.makedirs(contract_json_dest_dir, exist_ok=True)
-        shutil.rmtree(contract_json_dest_dir)
+    	#os.makedirs(contract_json_dest_dir, exist_ok=True)
+        #shutil.rmtree(contract_json_dest_dir)
 
         subprocess.call([npm_location, "install"], cwd=blockchain_dir)
 
